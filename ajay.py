@@ -14,7 +14,7 @@ from keras import backend as K
 import os
 
 def model_train(epoch,n):
-    batch_size = 32
+    batch_size = 30
     num_classes = 10
     epochs = epoch
 
@@ -47,16 +47,16 @@ def model_train(epoch,n):
 
     model = Sequential()
     
-    model.add(Conv2D(32, kernel_size=(3, 3),
+    model.add(Conv2D(30, kernel_size=(3, 3),
                      activation='relu',
                      input_shape=input_shape))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     if n>1:
-        model.add(Conv2D(32, kernel_size=(3, 3),
+        model.add(Conv2D(30, kernel_size=(3, 3),
                      activation='relu'))
         model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Flatten())
-    model.add(Dense(128, activation='relu'))
+    model.add(Dense(125, activation='relu'))
     model.add(Dense(num_classes, activation='softmax'))
 
     model.compile(loss=keras.losses.categorical_crossentropy,
